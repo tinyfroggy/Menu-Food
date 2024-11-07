@@ -168,7 +168,7 @@ async function displayFood() {
       </div>
 
       <p class="text-white font-semibold leading-relaxed tracking-wide overflow-y-auto rounded-lg p-4 ">${data.meals[0].strInstructions}</p>
-      <a class="text-emerald-300 font-semibold text-lg mt-2" href="${data.meals[0].strYoutube}">Youtube Link</a>
+      <a target="_blank" class="text-emerald-300 font-semibold text-lg mt-2" href="${data.meals[0].strYoutube}">Youtube Link</a>
     </div>
     <!-- End food card -->
     `;
@@ -205,7 +205,7 @@ async function filterCategories(category) {
           </div>
   
           <p class="text-white font-semibold leading-relaxed tracking-wide overflow-y-auto rounded-lg p-4 ">${mealDetails.strInstructions || "Instructions not available"}</p>
-          <a class="text-emerald-300 font-semibold text-lg mt-2" href="${mealDetails.strYoutube || "#"}">Youtube Link</a>
+          <a class="text-emerald-300 font-semibold text-lg mt-2" target="_blank" href="${mealDetails.strYoutube || "#"}">Youtube Link</a>
         </div>
         <!-- End food card -->
       `;
@@ -248,7 +248,7 @@ async function foodInfo(id) {
       </div>
 
       <p class="text-white font-semibold leading-relaxed tracking-wide overflow-y-auto rounded-lg p-4 ">${data.meals[0].strInstructions || "Instructions not available"}</p>
-      <a class="text-emerald-300 font-semibold text-lg mt-2" href="${data.meals[0].strYoutube || "#"}">Youtube Link</a>
+      <a class="text-emerald-300 font-semibold text-lg mt-2"  target="_blank" href="${data.meals[0].strYoutube || "#"}">Youtube Link</a>
     </div>
     <!-- End food card -->
   `;
