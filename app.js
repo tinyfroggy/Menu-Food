@@ -128,10 +128,10 @@ async function searchByNameFood(foodName) {
       `
       <!-- suggestions -->
           <div onclick="foodInfo(${suggestion.idMeal})" id="suggestions" class="flex items-center justify-between p-2 border-solid border-2 border-white rounded h-28 cursor-pointer bg-emerald-500 mb-2">
-            <img class="w-20 h-20  border-solid border-2 border-white" src="${suggestion.strMealThumb}" alt="Image Food">
+            <img class="w-20 h-20 sm:w-28 sm:h-28  border-solid border-2 border-white" src="${suggestion.strMealThumb}" alt="Image Food">
             <div class="flex w-56 justify-between ">
-              <h1 class="text-xl font-bold text-white">${suggestion.strMeal}</h1>
-              <h1 class="text-lg font-bold text-cyan-900">${suggestion.strArea}</h1>
+              <h1 class="ml-2 text-sm sm:text-xl font-bold text-white">${suggestion.strMeal}</h1>
+              <h1 class="text-sm sm:text-xl font-bold text-cyan-900">${suggestion.strArea}</h1>
             </div>
           </div>
           <!-- End suggestions -->
@@ -274,7 +274,7 @@ async function displayFromFavoriteList() {
       <!-- favorite food -->
       <div 
         class="flex items-center justify-between p-2 border-solid border-2 border-white h-28 cursor-pointer bg-emerald-400 mb-2 rounded-md">
-        <img class="w-20 h-20 border-solid border-2 border-white"
+        <img class="w-10 h-10 sm:w-20 sm:h-20 border-solid border-2 border-white"
           onclick="foodInfo(${data.meals[0].idMeal})" src="${data.meals[0].strMealThumb}" alt="Image Food">
         <div class="flex items-center  w-56 h-20 justify-between ml-2" onclick="foodInfo(${data.meals[0].idMeal})">
           <h1 class="text-sm font-bold text-white">${data.meals[0].strMeal}</h1>
@@ -289,7 +289,7 @@ async function displayFromFavoriteList() {
         </button>
       </div>
       <!-- End favorite food -->
-    `;
+      `;
 
     favoriteFoodContainer.innerHTML += foodInfo;
   }

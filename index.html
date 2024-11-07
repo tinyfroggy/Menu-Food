@@ -23,6 +23,26 @@
     ::selection {
       background: #047857;
     }
+
+    @media (max-width: 640px) {
+    h1 {
+      font-size: 1.5rem; 
+    }
+    
+    #search {
+      width: 80%; 
+    }
+    
+    #container-menu {
+      grid-template-columns: 1fr; 
+      gap: 2; 
+    }
+
+    #food-card {
+      width: 100%;
+      padding: 1rem;
+    }
+  }
   </style>
 </head>
 
@@ -30,29 +50,26 @@
 
   <!-- Header -->
   <div class="bg-emerald-800 h-20 w-full flex items-center justify-between shadow-md relative ">
-    <h1 class="mr-10 ml-5 text-center text-neutral-200 text-4xl font-bold cursor-pointer phone:text-sm" onclick="home()">Menu Food</h1>
+    <h1 class="mr-10 ml-5 text-center text-neutral-200 text-2xl sm:text-4xl font-bold cursor-pointer" onclick="home()">Menu Food</h1>
 
     <div class="relative">
       <!-- input search -->
       <input onfocus="this.value=''" id="search"
-        class="mr-6 w-96 h-12 p-2 rounded-md text-xl text-white font-bold outline-none capitalize bg-black bg-opacity-30 placeholder:italic placeholder:text-white "
-        placeholder="Search By Food Name" type="text">
+        class="mr-6 w-96 h-12 p-2 rounded-md text-sm sm:text-2xl text-white font-bold outline-none capitalize bg-black bg-opacity-30 placeholder:italic placeholder:text-white "
+        placeholder="Search" type="text">
       <!-- End input search -->
 
       <!-- suggestions container -->
       <div id="suggestions-container"
-        class="bg-emerald-600  p-5 overflow-x-hidden w-96 overflow-y-auto max-h-96 absolute right-26 top-14 rounded-md hidden">
-
-        <!--todo, continue tomorrow, style and logic suggestions , button search , button menu logic and style , button favorite style and logic -->
-
+        class="bg-emerald-600  p-5 overflow-x-hidden w-72 sm:w-96 overflow-y-auto max-h-96 absolute right-2 top-14 sm:right-26 rounded-md hidden">
         <!-- suggestions -->
         <div id="suggestions"
           class="flex items-center justify-between p-2 border-solid border-2 border-white h-28 cursor-pointer bg-emerald-400 mb-2">
-          <img class="w-20 h-20  border-solid border-2 border-white"
+          <img class="w-5 h-5 sm:w-20 sm:h-20  border-solid border-2 border-white"
             src="https://www.themealdb.com/images/media/meals/1529443236.jpg" alt="Image Food">
           <div class="flex w-36 justify-between ">
-            <h1 class="text-xl font-bold text-white">Name</h1>
-            <h1 class="text-xl font-bold text-white">Area</h>
+            <h1 class="ml-2 text-sm sm:text-xl font-bold text-white">Name</h1>
+            <h1 class="text-sm sm:text-xl font-bold text-white">Area</h>
           </div>
         </div>
         <!-- End suggestions -->
@@ -96,7 +113,7 @@
 
     <!-- favorite food container -->
     <div id="favorite-food-container"
-      class="bg-emerald-600  p-5 overflow-x-hidden w-96 overflow-y-auto max-h-96 absolute right-1 top-16 rounded-md hidden">
+      class="bg-emerald-600  p-5 overflow-x-hidden w-64 sm:w-96 overflow-y-auto max-h-96 absolute right-1 top-16 rounded-md hidden">
 
       <!-- favorite food -->
       <div 
@@ -128,11 +145,11 @@
 
   <!-- Header Menu -->
   <div class="bg-emerald-800 h-20 w-full flex items-center justify-between shadow-md">
-    <h1 id="miscellaneous" class="ml-5 text-center text-white text-2xl font-bold cursor-pointer">Miscellaneous</h1>
-    <h1 id="beef" class="text-center text-white text-2xl font-bold cursor-pointer">Beef</h1>
-    <h1 id="chicken" class="text-center text-white text-2xl font-bold cursor-pointer">Chicken</h1>
-    <h1 id="pasta" class="text-center text-white text-2xl font-bold cursor-pointer">Pasta</h1>
-    <h1 id="seafood" class="mr-10 text-center text-white text-2xl font-bold cursor-pointer">Seafood</h1>
+    <h1 id="miscellaneous" class="ml-5 text-center text-white text-sm sm:text-2xl font-bold cursor-pointer">Miscellaneous</h1>
+    <h1 id="beef" class="text-center text-white text-sm sm:text-2xl font-bold cursor-pointer">Beef</h1>
+    <h1 id="chicken" class="text-center text-white text-sm sm:text-2xl font-bold cursor-pointer">Chicken</h1>
+    <h1 id="pasta" class="text-center text-white text-sm sm:text-2xl font-bold cursor-pointer">Pasta</h1>
+    <h1 id="seafood" class="mr-10 text-center text-white text-sm sm:text-2xl font-bold cursor-pointer">Seafood</h1>
   </div>
   <!-- End Header Menu -->
 
