@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Menu Food</title>
+  <style>
+    .active {
+      background-color: gray;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    ::-moz-selection {
+      background: #047857;
+    }
+
+    ::selection {
+      background: #047857;
+    }
+  </style>
+</head>
+
+<body class="bg-emerald-950">
+
+  <!-- Header -->
+  <div class="bg-emerald-800 h-20 w-full flex items-center justify-between shadow-md relative ">
+    <h1 class="mr-10 ml-5 text-center text-neutral-200 text-4xl font-bold cursor-pointer phone:text-sm" onclick="home()">Menu Food</h1>
+
+    <div class="relative">
+      <!-- input search -->
+      <input onfocus="this.value=''" id="search"
+        class="mr-6 w-96 h-12 p-2 rounded-md text-xl text-white font-bold outline-none capitalize bg-black bg-opacity-30 placeholder:italic placeholder:text-white "
+        placeholder="Search By Food Name" type="text">
+      <!-- End input search -->
+
+      <!-- suggestions container -->
+      <div id="suggestions-container"
+        class="bg-emerald-600  p-5 overflow-x-hidden w-96 overflow-y-auto max-h-96 absolute right-26 top-14 rounded-md hidden">
+
+        <!--todo, continue tomorrow, style and logic suggestions , button search , button menu logic and style , button favorite style and logic -->
+
+        <!-- suggestions -->
+        <div id="suggestions"
+          class="flex items-center justify-between p-2 border-solid border-2 border-white h-28 cursor-pointer bg-emerald-400 mb-2">
+          <img class="w-20 h-20  border-solid border-2 border-white"
+            src="https://www.themealdb.com/images/media/meals/1529443236.jpg" alt="Image Food">
+          <div class="flex w-36 justify-between ">
+            <h1 class="text-xl font-bold text-white">Name</h1>
+            <h1 class="text-xl font-bold text-white">Area</h>
+          </div>
+        </div>
+        <!-- End suggestions -->
+
+        <!-- suggestions -->
+        <div id="suggestions"
+          class="flex items-center justify-between p-2 border-solid border-2 border-white h-28 cursor-pointer bg-emerald-400 mb-2">
+          <img class="w-20 h-20  border-solid border-2 border-white"
+            src="https://www.themealdb.com/images/media/meals/1529443236.jpg" alt="Image Food">
+          <div class="flex w-36 justify-between ">
+            <h1 class="text-xl font-bold text-white">Name</h1>
+            <h1 class="text-xl font-bold text-white">Area</h>
+          </div>
+        </div>
+        <!-- End suggestions -->
+
+      </div>
+      <!-- End suggestions container -->
+
+    </div>
+
+    <!-- favorite button -->
+    <button id="favorite-food-list-button">
+      <svg class="mr-5 cursor-pointer" fill="white" xmlns="http://www.w3.org/2000/svg" height="50px"
+        viewBox="0 -960 960 960" width="50px">
+        <path
+          d="M120-280v-80h560v80H120Zm0-160v-80h560v80H120Zm0-160v-80h560v80H120Zm680 320q-17 0-28.5-11.5T760-320q0-17 11.5-28.5T800-360q17 0 28.5 11.5T840-320q0 17-11.5 28.5T800-280Zm0-160q-17 0-28.5-11.5T760-480q0-17 11.5-28.5T800-520q17 0 28.5 11.5T840-480q0 17-11.5 28.5T800-440Zm0-160q-17 0-28.5-11.5T760-640q0-17 11.5-28.5T800-680q17 0 28.5 11.5T840-640q0 17-11.5 28.5T800-600Z" />
+      </svg>
+    </button>
+    <!-- end favorite button -->
+
+    <!-- close favorite button -->
+    <button id="close-favorite-food-list-button" class="hidden">
+      <svg class="mr-5 cursor-pointer" xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960"
+        width="50px" fill="#e8eaed">
+        <path
+          d="m341-285.33 139-139 139 139L674.67-341l-139-139 139-139L619-674.67l-139 139-139-139L285.33-619l139 139-139 139L341-285.33ZM480.09-52Q391-52 313.01-85.42q-77.98-33.41-136.08-91.51-58.1-58.1-91.51-135.99Q52-390.82 52-479.91q0-89.76 33.42-167.74 33.41-77.99 91.4-135.79 58-57.8 135.94-91.51 77.94-33.72 167.09-33.72 89.82 0 167.88 33.67 78.07 33.66 135.82 91.37 57.74 57.71 91.43 135.72 33.69 78.02 33.69 167.91 0 89.18-33.72 167.16-33.71 77.98-91.51 135.99-57.8 58.02-135.69 91.43Q569.85-52 480.09-52ZM480-156.67q135.33 0 229.33-93.91 94-93.92 94-229.42 0-135.33-94-229.33t-229.66-94q-135 0-229 94t-94 229.66q0 135 93.91 229 93.92 94 229.42 94ZM480-480Z" />
+      </svg>
+    </button>
+    <!-- end close favorite button -->
+
+    <!-- favorite food container -->
+    <div id="favorite-food-container"
+      class="bg-emerald-600  p-5 overflow-x-hidden w-96 overflow-y-auto max-h-96 absolute right-1 top-16 rounded-md hidden">
+
+      <!-- favorite food -->
+      <div 
+        class="flex items-center justify-between p-2  border-solid border-2 border-white h-28 cursor-pointer bg-emerald-400 mb-2 rounded-md">
+        <img class="w-20 h-20  border-solid border-2 border-white"
+          src="https://www.themealdb.com/images/media/meals/1529443236.jpg" alt="Image Food">
+        <div class="flex items-center  w-56 h-20 justify-between ml-2 ">
+          <h1 class="text-sm font-bold text-white">Name</h1>
+          <h1 class="text-sm font-bold text-white">Area</h>
+        </div>
+
+        <button class="ml-3 hover:bg-emerald-950" onclick="removeFavoriteFood()" id="remove-favorite-food-button">
+          <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#e8eaed">
+            <path
+              d="M870-697H606v-83h264v83ZM175-82v-694q0-39.46 27.48-67.23Q229.95-871 269-871h277v95H269v551l211-88.24L691-225v-322h95v465L480-212 175-82Zm94-694h277-277Z" />
+          </svg>
+        </button>
+      </div>
+      <!-- End favorite food -->
+
+    </div>
+    <!-- End favorite food container -->
+
+  </div>
+  <!-- End suggestions container -->
+
+  </div>
+  <!-- End Header -->
+
+  <!-- Header Menu -->
+  <div class="bg-emerald-800 h-20 w-full flex items-center justify-between shadow-md">
+    <h1 id="miscellaneous" class="ml-5 text-center text-white text-2xl font-bold cursor-pointer">Miscellaneous</h1>
+    <h1 id="beef" class="text-center text-white text-2xl font-bold cursor-pointer">Beef</h1>
+    <h1 id="chicken" class="text-center text-white text-2xl font-bold cursor-pointer">Chicken</h1>
+    <h1 id="pasta" class="text-center text-white text-2xl font-bold cursor-pointer">Pasta</h1>
+    <h1 id="seafood" class="mr-10 text-center text-white text-2xl font-bold cursor-pointer">Seafood</h1>
+  </div>
+  <!-- End Header Menu -->
+
+  <!-- container menu -->
+  <div id="container-menu" class="bg-emerald-200 max-h-full w-full grid gap-4 grid-cols-3 grid-rows-3 p-5">
+
+    <!-- food card -->
+    <div id="food-card" class="w-full h-96 p-3 flex items-center justify-start flex-col  bg-green-500 rounded-lg">
+      <div class="flex justify-between  w-full">
+        <img class="w-40 h-w-40  border-solid border-2 border-black rounded-md"
+          src="https://www.themealdb.com/images/media/meals/wxyvqq1511723401.jpg" alt="Food Image">
+        <button id="add-favorite" class="rounded-md text-xl font-bold ">
+          <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000">
+            <path
+              d="M479.69-391.33q50.64-46 81.41-76.19 30.76-30.18 47.4-51.68 16.5-21.88 22.5-38.28 6-16.41 6-34.96 0-35.96-25.58-61.09-25.58-25.14-61.31-25.14-21.52 0-39.98 8.67-18.46 8.67-30.03 22.67-11.57-14-30.34-22.67-18.77-8.67-40.43-8.67-35.43 0-60.55 25.84-25.11 25.83-25.11 61.6 0 18.36 4.5 34.46t21.33 36.44q15.98 20.82 47.31 51.19 31.32 30.36 82.88 77.81ZM170-75.33v-692q0-44.1 31.79-75.39Q233.57-874 276-874h408q42.7 0 74.68 31.28 31.99 31.29 31.99 75.39v692L480-207.67 170-75.33Zm106-161.34 204-85.55 204 85.55v-530.66H276v530.66Zm0-530.66h408-408Z" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="flex justify-between w-full">
+        <h1 class="mt-1 text-lg font-bold">Name</h1>
+        <h1 class="text-lg font-bold">Area</h1>
+      </div>
+
+      <p class="text-black font-semibold leading-relaxed tracking-wide overflow-y-auto rounded-lg p-4 ">
+        STEP 1 Peel and cut the potatoes into even, medium-sized chunks. Put in a large pan filled with cold salted
+        water, bring to the boil and cook for 10-15 mins until a knife can be inserted into the potatoes easily. STEP 2
+        Meanwhile, melt the butter in a large sauté pan over a medium heat. Add the garlic, cabbage, spring onions and
+        some seasoning. Stir occasionally until the cabbage is wilted but still retains a little bite, then set aside.
+        STEP 3 Drain the potatoes, leave to steam-dry for a couple of mins, then mash with the cream, mustard and
+        seasoning in the same saucepan. Stir in the cabbage and ham hock. Keep warm over a low heat. STEP 4 Reheat the
+        pan you used to cook the cabbage (no need to wash first), add a splash of oil, crack in the eggs and fry to your
+        liking. To serve, divide the colcannon between bowls and top each with a fried egg.
+      </p>
+      <a class="text-blue-800 font-semibold text-lg mt-2" href="#">Youtube Link</a>
+    </div>
+    <!-- End food card -->
+
+  </div>
+  <!-- End container menu -->
+
+
+</body>
+
+<script src="app.js"></script>
+
+</html>
