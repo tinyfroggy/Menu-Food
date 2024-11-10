@@ -14,6 +14,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 5px;
     }
 
     ::-moz-selection {
@@ -25,24 +26,24 @@
     }
 
     @media (max-width: 640px) {
-    h1 {
-      font-size: 1.5rem; 
-    }
-    
-    #search {
-      width: 80%; 
-    }
-    
-    #container-menu {
-      grid-template-columns: 1fr; 
-      gap: 2; 
-    }
+      h1 {
+        font-size: 1.5rem;
+      }
 
-    #food-card {
-      width: 100%;
-      padding: 1rem;
+      #search {
+        width: 80%;
+      }
+
+      #container-menu {
+        grid-template-columns: 1fr;
+        gap: 2;
+      }
+
+      #food-card {
+        width: 100%;
+        padding: 1rem;
+      }
     }
-  }
   </style>
 </head>
 
@@ -50,7 +51,8 @@
 
   <!-- Header -->
   <div class="bg-emerald-800 h-20 w-full flex items-center justify-between shadow-md relative ">
-    <h1 class="mr-10 ml-5 text-center text-neutral-200 text-2xl sm:text-4xl font-bold cursor-pointer" onclick="home()">Menu Food</h1>
+    <h1 class="mr-10 ml-5 text-center text-neutral-200 text-2xl sm:text-4xl font-bold cursor-pointer" onclick="home()">
+      Menu Food</h1>
 
     <div class="relative">
       <!-- input search -->
@@ -61,7 +63,7 @@
 
       <!-- suggestions container -->
       <div id="suggestions-container"
-        class="bg-emerald-600  p-5 overflow-x-hidden w-72 sm:w-96 overflow-y-auto max-h-96 absolute right-2 top-14 sm:right-26 rounded-md hidden">
+        class="bg-emerald-600 p-2 overflow-x-hidden w-72 sm:w-96 overflow-y-auto max-h-96 absolute right-2 top-14 sm:right-26 rounded-md hidden">
         <!-- suggestions -->
         <div id="suggestions"
           class="flex items-center justify-between p-2 border-solid border-2 border-white h-28 cursor-pointer bg-emerald-400 mb-2">
@@ -92,11 +94,10 @@
     </div>
 
     <!-- favorite button -->
-    <button id="favorite-food-list-button">
-      <svg class="mr-5 cursor-pointer" fill="white" xmlns="http://www.w3.org/2000/svg" height="50px"
-        viewBox="0 -960 960 960" width="50px">
+    <button id="favorite-food-list-button"> 
+      <svg class="mr-5 cursor-pointer" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#e8eaed">
         <path
-          d="M120-280v-80h560v80H120Zm0-160v-80h560v80H120Zm0-160v-80h560v80H120Zm680 320q-17 0-28.5-11.5T760-320q0-17 11.5-28.5T800-360q17 0 28.5 11.5T840-320q0 17-11.5 28.5T800-280Zm0-160q-17 0-28.5-11.5T760-480q0-17 11.5-28.5T800-520q17 0 28.5 11.5T840-480q0 17-11.5 28.5T800-440Zm0-160q-17 0-28.5-11.5T760-640q0-17 11.5-28.5T800-680q17 0 28.5 11.5T840-640q0 17-11.5 28.5T800-600Z" />
+          d="m479-82.67-65.67-59q-107.51-98.08-177.42-169.37Q166-382.33 124.83-439q-41.16-56.67-57.5-104Q51-590.33 51-640.07q0-103.79 69.35-173.36Q189.7-883 292.33-883q54.51 0 101.75 22 47.25 22 84.92 65 41.67-45 87.7-66 46.04-21 98.97-21 104.05 0 173.69 69.59Q909-743.83 909-640q0 49.31-16.17 96.32-16.16 47.01-57.5 103.51Q794-383.67 723.68-311.8q-70.32 71.87-178.35 170.13l-66.33 59Zm-.33-139q98.49-90.66 161.58-153.66 63.08-63 99.58-110t50.5-83.24q14-36.24 14-71.31 0-60.12-38.91-99.29-38.9-39.16-99.12-39.16-47.17 0-88.07 30.16-40.9 30.17-63.9 81.17H444q-22.01-51-63.71-81.17-41.7-30.16-87.91-30.16-58.99 0-97.35 38.73-38.36 38.74-38.36 99.81 0 36.43 14.44 73.56t51 84.35q36.56 47.21 98.72 109.71 62.17 62.5 157.84 150.5ZM481-500.33Z" />
       </svg>
     </button>
     <!-- end favorite button -->
@@ -113,10 +114,10 @@
 
     <!-- favorite food container -->
     <div id="favorite-food-container"
-      class="bg-emerald-600  p-5 overflow-x-hidden w-64 sm:w-96 overflow-y-auto max-h-96 absolute right-1 top-16 rounded-md hidden">
+      class="bg-emerald-600  p-1 overflow-x-hidden w-64 sm:w-96 overflow-y-auto max-h-96 absolute right-1 top-16 rounded-md hidden">
 
       <!-- favorite food -->
-      <div 
+      <div
         class="flex items-center justify-between p-2  border-solid border-2 border-white h-28 cursor-pointer bg-emerald-400 mb-2 rounded-md">
         <img class="w-20 h-20  border-solid border-2 border-white"
           src="https://www.themealdb.com/images/media/meals/1529443236.jpg" alt="Image Food">
@@ -145,7 +146,8 @@
 
   <!-- Header Menu -->
   <div class="bg-emerald-800 h-20 w-full flex items-center justify-between shadow-md">
-    <h1 id="miscellaneous" class="ml-5 text-center text-white text-sm sm:text-2xl font-bold cursor-pointer">Miscellaneous</h1>
+    <h1 id="miscellaneous" class="ml-5 text-center text-white text-sm sm:text-2xl font-bold cursor-pointer">
+      Miscellaneous</h1>
     <h1 id="beef" class="text-center text-white text-sm sm:text-2xl font-bold cursor-pointer">Beef</h1>
     <h1 id="chicken" class="text-center text-white text-sm sm:text-2xl font-bold cursor-pointer">Chicken</h1>
     <h1 id="pasta" class="text-center text-white text-sm sm:text-2xl font-bold cursor-pointer">Pasta</h1>
@@ -157,34 +159,23 @@
   <div id="container-menu" class="bg-emerald-200 max-h-full w-full grid gap-4 grid-cols-3 grid-rows-3 p-5">
 
     <!-- food card -->
-    <div id="food-card" class="w-full h-96 p-3 flex items-center justify-start flex-col  bg-green-500 rounded-lg">
-      <div class="flex justify-between  w-full">
-        <img class="w-40 h-w-40  border-solid border-2 border-black rounded-md"
-          src="https://www.themealdb.com/images/media/meals/wxyvqq1511723401.jpg" alt="Food Image">
-        <button id="add-favorite" class="rounded-md text-xl font-bold ">
-          <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000">
-            <path
-              d="M479.69-391.33q50.64-46 81.41-76.19 30.76-30.18 47.4-51.68 16.5-21.88 22.5-38.28 6-16.41 6-34.96 0-35.96-25.58-61.09-25.58-25.14-61.31-25.14-21.52 0-39.98 8.67-18.46 8.67-30.03 22.67-11.57-14-30.34-22.67-18.77-8.67-40.43-8.67-35.43 0-60.55 25.84-25.11 25.83-25.11 61.6 0 18.36 4.5 34.46t21.33 36.44q15.98 20.82 47.31 51.19 31.32 30.36 82.88 77.81ZM170-75.33v-692q0-44.1 31.79-75.39Q233.57-874 276-874h408q42.7 0 74.68 31.28 31.99 31.29 31.99 75.39v692L480-207.67 170-75.33Zm106-161.34 204-85.55 204 85.55v-530.66H276v530.66Zm0-530.66h408-408Z" />
+    <div id="food-card" class="w-full h-96 p-3 flex items-center justify-start flex-col bg-emerald-900 rounded-lg">
+      <div class="flex justify-between w-full">
+        <img class="w-40 h-40 border-solid border-2 border-white rounded-md" src="#" alt="Food Image">
+        <button id="add-favorite"  class="bg-emerald-900 rounded-md text-xl font-bold ">
+          <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#fff">
+            <path d="M479.69-391.33q50.64-46 81.41-76.19 30.76-30.18 47.4-51.68 16.5-21.88 22.5-38.28 6-16.41 6-34.96 0-35.96-25.58-61.09-25.58-25.14-61.31-25.14-21.52 0-39.98 8.67-18.46 8.67-30.03 22.67-11.57-14-30.34-22.67-18.77-8.67-40.43-8.67-35.43 0-60.55 25.84-25.11 25.83-25.11 61.6 0 18.36 4.5 34.46t21.33 36.44q15.98 20.82 47.31 51.19 31.32 30.36 82.88 77.81ZM170-75.33v-692q0-44.1 31.79-75.39Q233.57-874 276-874h408q42.7 0 74.68 31.28 31.99 31.29 31.99 75.39v692L480-207.67 170-75.33Zm106-161.34 204-85.55 204 85.55v-530.66H276v530.66Zm0-530.66h408-408Z" />
           </svg>
         </button>
       </div>
 
       <div class="flex justify-between w-full">
-        <h1 class="mt-1 text-lg font-bold">Name</h1>
-        <h1 class="text-lg font-bold">Area</h1>
+        <h1 class="mt-2 mb-2 text-sm font-bold text-white"></h1>
+        <h1 class="text-lg font-bold text-cyan-400"></h1>
       </div>
 
-      <p class="text-black font-semibold leading-relaxed tracking-wide overflow-y-auto rounded-lg p-4 ">
-        STEP 1 Peel and cut the potatoes into even, medium-sized chunks. Put in a large pan filled with cold salted
-        water, bring to the boil and cook for 10-15 mins until a knife can be inserted into the potatoes easily. STEP 2
-        Meanwhile, melt the butter in a large sauté pan over a medium heat. Add the garlic, cabbage, spring onions and
-        some seasoning. Stir occasionally until the cabbage is wilted but still retains a little bite, then set aside.
-        STEP 3 Drain the potatoes, leave to steam-dry for a couple of mins, then mash with the cream, mustard and
-        seasoning in the same saucepan. Stir in the cabbage and ham hock. Keep warm over a low heat. STEP 4 Reheat the
-        pan you used to cook the cabbage (no need to wash first), add a splash of oil, crack in the eggs and fry to your
-        liking. To serve, divide the colcannon between bowls and top each with a fried egg.
-      </p>
-      <a class="text-blue-800 font-semibold text-lg mt-2" href="#">Youtube Link</a>
+      <p class="text-white font-semibold leading-relaxed tracking-wide overflow-y-auto rounded-lg p-4 bg-emerald-800"></p>
+      <a class="text-emerald-300 font-semibold text-lg mt-2" target="_blank" href="#">Youtube Link</a>
     </div>
     <!-- End food card -->
 
